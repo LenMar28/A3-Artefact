@@ -1,0 +1,53 @@
+//user defined variables
+
+PImage collage;
+int brain; //bouncing ball
+int thinking = 10; //bouncing speed
+
+
+//setting up the canvas
+
+void setup(){
+  size(1000, 1200);
+  collage = loadImage("art.jpg");
+  brain = 0;
+  brain1 =1000;  
+}
+
+
+//Drawing on the canvas
+
+ void draw(){
+  background (255);
+  image(collage,0,0);
+  
+  //blue transparent circle
+  stroke(255, 235, 0);
+  fill(0, 0, 255, 80);
+  ellipse(500, 600, 500, 500);
+  
+  //bouncing ball
+  fill(255, 235, 0);
+  noStroke ();
+  ellipse(brain, height/2, 40, 40);
+ 
+ //animating the variable, making the brain think or 'bounce'
+  brain = brain + thinking;
+ 
+  
+ //Boolean expressions and conditional statements
+ 
+ if (brain > width || brain < 0){
+    tint(random(255), random(255), random(255));
+    image(collage, 0, 0);
+    } 
+   
+  if (brain > width){
+    thinking = -10;
+    }
+    
+  if (brain < 0){
+    thinking = 10;
+    }
+    
+ }
